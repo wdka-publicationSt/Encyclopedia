@@ -26,10 +26,17 @@ div#menu a {
 }
 
 th.header {
-  font-weight:bold !important;;
-   font-size:1.2em !important;;
+  font-weight:bold !important;
+   font-size:1.2em !important;
 }
 
 tbody th{
-  font-weight:normal !important;;  
+  font-weight:normal !important; 
+}
+
+th {
+
+    border-bottom: black 1px solid;
+    border-left: 1px solid black;
+
 }
