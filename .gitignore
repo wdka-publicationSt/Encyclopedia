@@ -1,0 +1,12 @@
+*
+!.gitignore
+!jquery-3.3.1.min.js
+!jquery.tablesorter.min.js
+!list-html.py
+!style.css
+!tablestyle/asc.gif
+!tablestyle/bg.gif
+!tablestyle/desc.gif
+!tablestyle/style.css
+!template.html
+

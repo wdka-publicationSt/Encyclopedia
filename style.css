@@ -1,0 +1,22 @@
+body{font-weight: normal;
+  font-size:12pt;
+}
+
+div#menu {
+    width: 100%;
+}
+
+div#menu a {
+    display: inline-block;
+    width: 49%;
+    text-align: center;
+}
+
+th.header {
+  font-weight:bold !important;;
+   font-size:1.2em !important;;
+}
+
+tbody th{
+  font-weight:normal !important;;  
+}
