@@ -87,7 +87,7 @@ list_on_topic = Template('''
 
 
 table_all_entries = Template( '''
-<h2 id="table">Table of of All Entries</h2>            
+<h2 id="table">Table of All Entries</h2>            
 <table id="myTable" class="tablesorter"> 
 <thead> 
 <tr> 
