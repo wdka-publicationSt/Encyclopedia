@@ -86,38 +86,6 @@ list_on_topic = Template('''
 #print(onsubject)
 
 
-#print(list_on_topic_render)
-
-list_all_entries = Template( '''
-<h2 id="listall">List of All Entries</h2>            
-<ul>
-{% for key, val in users.items() %}
-<li><b>Title:</b> 
-<a target="_new" href="{{val.path}}">
-{% if val.title|length > 0 %}
-{{ val.title }}
-{% else %}
-<s>Missing title</s>
-{% endif %}
-</a> 
-     <b>Author:</b> 
-{% if val.author|length > 0 %}
-{{ val.author }}
-{% else %}
-<s>Missing author name</s>
-{% endif %}
- 
-     <b>Main Topic</b>{% if val.onsubject|length > 0 %}
-{{ val.onsubject }}
-{% else %}
-<s>Missing Parent topic (id="onsubject")</s>
-{% endif %}
-
-</li>
-  {% endfor %}
-</ul>
-''')
-
 table_all_entries = Template( '''
 <h2 id="table">Table of of All Entries</h2>            
 <table id="myTable" class="tablesorter"> 
