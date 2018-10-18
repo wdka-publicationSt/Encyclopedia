@@ -9,6 +9,10 @@
       {
       console.log('jquery loaded');
       $("#myTable").tablesorter();
+
+      var win_height = window.innerHeight;
+      $("h2#table").css('margin-top',win_height+"px",'!important');
+      
       }
       );
     </script>
