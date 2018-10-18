@@ -9,7 +9,7 @@
 
       .node circle {
       fill: #fff;
-      stroke: steelblue;
+      stroke: #dc30f2;
       stroke-width: 3px;
       }
 
@@ -23,10 +23,23 @@
 
     </style>
 
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Montserrat:400,400i,700,700i" rel="stylesheet"> 
+    <link rel="stylesheet" href="tablestyle/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+
   </head>
 
   <body>
+    <h1>Encyclopedia Tree</h1>
+    <div id="menu">
+      <a href="index-01.html#table">Table View</a>
+      
+      <a href="index-01.html#parenttopic">Main Topic View</a>
 
+
+    </div>
+
+    
     <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
     <!-- load the d3.js library -->
     <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -42,7 +55,7 @@
       // ************** Generate the tree diagram  *****************
       var margin = {top: 20, right: 120, bottom: 20, left: 120},
       width = 960 - margin.right - margin.left,
-      height = 500 - margin.top - margin.bottom;
+      height = 1000 - margin.top - margin.bottom;
 
       var i = 0;
 
@@ -70,7 +83,7 @@ function update(root) {
       links = tree.links(nodes);
 
       // Normalize for fixed-depth.
-      nodes.forEach(function(d) { d.y = d.depth * 180; });
+      nodes.forEach(function(d) { d.y = d.depth * 250; });
 
       // Declare the nodesâ€¦
       var node = svg.selectAll("g.node")
@@ -82,18 +95,23 @@ function update(root) {
       .attr("transform", function(d) {
       return "translate(" + d.y + "," + d.x + ")"; });
 
-      nodeEnter.append("circle")
-      .attr("r", 10)
+    var nodeLink = nodeEnter.append("a")
+    nodeLink.attr("href",function(d){return d.path;})
+
+      nodeLink.append("circle")
+      .attr("r", 5)
       .style("fill", "#fff");
 
-      nodeEnter.append("text")
+      nodeLink.append("text")
       .attr("x", function(d) {
       return d.children || d._children ? -13 : 13; })
       .attr("dy", ".35em")
       .attr("text-anchor", function(d) {
       return d.children || d._children ? "end" : "start"; })
-      .text(function(d) { return d.name; })
-      .style("fill-opacity", 1);
+	.text( function(d) { return  d.name; })// + " by: " + d.author; })
+	.style("fill-opacity", 1)
+    ;
+    
 
       // Declare the linksâ€¦
       var link = svg.selectAll("path.link")

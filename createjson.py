@@ -16,9 +16,9 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 def query_html(filename): # query html file to get info
     file_html_src = (open(dir_path + '/' +filename, 'r')).read()
     dom = PyQuery(file_html_src)
-    title = dom("#title").text()
-    author = dom("#author").text()
-    onsubject = dom("#onsubject").text()
+    title = dom("#title").text() if dom("#title").text() else 'Missing Title' 
+    author = dom("#author").text() if dom("#author").text() else 'Missing Author'
+    onsubject = dom("#onsubject").text() if dom("#onsubject").text() else 'Missing Parent Topic' #if no onsubject give it Missing Parent Topic
     return title, author, onsubject
 
 
@@ -33,7 +33,7 @@ for root, dirs, files in os.walk(dir_path): # find all html files in subfolders
             websites[f]={'path': file_relative_path,
                          'title': title, # get title from querying page
                          'author': author,# get author from querying page
-                         'onsubject': onsubject.title() if onsubject.title() else 'Missing Parent Topic' #if no onsubject give it Missing Parent Topic
+                         'onsubject': onsubject
             }
             #print(file_relative_path )
 
