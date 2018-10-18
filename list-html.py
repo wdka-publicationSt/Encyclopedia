@@ -143,7 +143,7 @@ table_html_render = table_all_entries.render(users=websites)
 index = template.render(content= table_html_render + list_on_topic_render)
 #print(index)
 
-index_file = open('index-01.html','w')
+index_file = open(dir_path + '/' + 'index-01.html','w')
 index_file.write( index)
 index_file.close()
 

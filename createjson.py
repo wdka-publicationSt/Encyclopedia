@@ -74,7 +74,7 @@ for website in websites.keys(): # loop through all websites
         
 #pprint(data)
 
-f = open('tree.json', 'w')
+f = open(dir_path + '/' +'tree.json', 'w')
 json.dump(data, f, indent=4)
 f.close()
 
